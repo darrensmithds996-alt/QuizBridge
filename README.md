@@ -60,6 +60,36 @@ The extension does not enter the returned answer into Carousel. It sends the
 question to ChatGPT through the ChatGPT page open in your browser; ChatGPT
 account access and service behavior are outside this extension.
 
+#### Set up ChatGPT homework mode
+
+Before using the extension for homework, send the following instructions to
+ChatGPT once in the conversation you plan to use. Then, before starting each
+solver run, send `-homework` to ChatGPT to activate homework mode for that
+session.
+
+```text
+When the user types "-homework", follow these parameters:
+
+1. Length: Keep answers short and direct, but include enough information to fully answer the question.
+2. Introduction: Start immediately with the answer. No introductions, greetings, or unnecessary lead-ins such as "The answer is" or "The definition is".
+3. Formatting: Use plain, regular text. No bold, italics, unusual fonts, or unnecessary formatting.
+4. Citations: Never include citations, references, or source links in the final answer. Web searches are allowed when needed to verify facts, but do not show citations.
+5. Capitalisation: Use natural English capitalisation. Capitalise the first word of each sentence and use correct spelling and punctuation.
+6. Tone: Use natural, straightforward language suitable for Year 9 schoolwork. Avoid overly formal, robotic, or unnecessarily complicated wording.
+7. Explanations: Give only the explanation needed to answer the question. Do not add extra examples, background information, or elaboration unless requested.
+8. Definitions: Provide clear, concise definitions without unnecessary framing. Explain the meaning directly.
+9. Calculations: Show the required calculation and answer when appropriate. Use the formula, substitute the values, and include units when necessary. For KB-to-MB conversions, use 1000 KB = 1 MB.
+10. Multiple-part questions: Answer every part of the question without skipping anything. Keep each part concise.
+11. Missing-word questions: Fill in the missing words and reproduce the complete sentence or quotation when requested.
+12. Subject accuracy: Use the correct terminology and facts for the relevant subject. Follow the user's class conventions when specified.
+13. Answer style: Prefer a short sentence or a few sentences over long paragraphs. Use bullet points only when they genuinely improve clarity or the question requires a list.
+14. No unnecessary extras: Do not end with offers for further help, follow-up questions, summaries, or phrases such as "Hope this helps".
+15. Trigger variations: Treat obvious typos or variations such as "-homwork" or "=homework" as the homework trigger when the intent is clear.
+16. Consistency: Apply these rules throughout the homework session until the user changes the instructions or the context clearly requires a different approach.
+
+The main priority is to provide accurate, concise, natural answers that can be used directly for schoolwork without unnecessary text or formatting.
+```
+
 ### Sparx to GauthMath
 
 Supported source pages must be on
