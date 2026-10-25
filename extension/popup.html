@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homework Solver</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        width: 260px;
+        margin: 0;
+        padding: 16px;
+        color: #202124;
+        font: 14px Arial, sans-serif;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 18px;
+      }
+      p {
+        margin: 0 0 12px;
+        line-height: 1.4;
+      }
+      button {
+        width: 100%;
+        margin: 5px 0;
+        padding: 10px;
+        border: 0;
+        border-radius: 4px;
+        color: white;
+        background: #1a73e8;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      #clearSiteData,
+      #cancelSolver {
+        background: #b42318;
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      #status {
+        min-height: 18px;
+        margin: 8px 0 0;
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Homework Solver</h1>
+    <p>
+      On Carousel, open a question; the extension reads it, gets a ChatGPT
+      answer, and copies it. On Sparx, it captures the question, presses Enter
+      on Sparx, then attaches the screenshot in GauthMath. It does not enter
+      answers into either site.
+    </p>
+    <button id="runSolver" type="button">Run solver for this page</button>
+    <button id="clearSiteData" type="button">Clear site cookies &amp; cache</button>
+    <button id="cancelSolver" type="button">Cancel running workflow</button>
+    <p id="status" role="status" aria-live="polite"></p>
+    <script src="popup.js"></script>
+  </body>
+</html>

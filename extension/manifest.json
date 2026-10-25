@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Homework Solver",
+  "version": "1.0.0",
+  "description": "Copy ChatGPT answers for Carousel and send Sparx questions to GauthMath.",
+  "permissions": [
+    "browsingData",
+    "clipboardWrite",
+    "downloads",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "run-solver": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U"
+      },
+      "description": "Run the solver for the active Carousel or Sparx tab"
+    },
+    "clear-site-data": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K"
+      },
+      "description": "Clear cookies and cache for the active site"
+    },
+    "cancel-solver": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Cancel the current solver workflow"
+    }
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
