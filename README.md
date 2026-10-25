@@ -110,18 +110,19 @@ dispatched, which may take a moment to settle.
 
 ## Install
 
-This is an unpacked Chromium extension. No Python installation or external
-Python packages are required to run the extension.
+For the easiest installation, download **`extension.zip`** from the project's
+GitHub Releases and extract it. That is the only download you need. The
+`Sparx Solver.py` and `Carousel Solver.py` files are not required to use this
+extension. No Python installation or external Python packages are required.
 
-1. Download or clone this project, or otherwise obtain the `extension` folder.
+1. Extract `extension.zip` from the GitHub release.
 2. Open the browser's extension management page:
    - Chrome: `chrome://extensions`
    - Microsoft Edge: `edge://extensions`
    - Other Chromium browsers: use that browser's extensions page.
 3. Turn on **Developer mode**.
 4. Select **Load unpacked**.
-5. Choose this project's `extension` folder, the folder containing
-   `manifest.json`.
+5. Choose the extracted folder containing `manifest.json`.
 6. Pin the extension if you want convenient access to its popup.
 7. Keep the browser signed in to the relevant services and open the correct
    source page before running a workflow.
