@@ -99,16 +99,17 @@ Supported source pages must be on
 2. Run the extension while the Sparx page is the active tab.
 3. It captures the visible browser tab as a PNG before advancing the page.
 4. It dispatches Enter key events to the currently focused element on Sparx.
-5. It opens a GauthMath tab at `https://www.gauthmath.com/`, or reuses an open
+5. It saves the screenshot in your browser's Downloads folder as
+   `Screenshot.png`. If a file with that name already exists, the browser uses
+   a unique name, for example `Screenshot (1).png`.
+6. It opens a GauthMath tab at `https://www.gauthmath.com/`, or reuses an open
    matching tab, and waits for the page to finish loading.
-6. It looks for an enabled image file-upload input and attaches the captured
+7. It looks for an enabled image file-upload input and attaches the captured
    PNG as `sparx-question.png`. If exactly one visible, enabled button appears
    to be an action such as Solve, Submit, Send, Ask, or Get answer, it clicks
    that button.
-7. If it cannot find an eligible image upload input, it saves the screenshot
-   to the browser's Downloads folder as `Screenshot.png`. If that name already
-   exists, the browser uses a unique name, for example `Screenshot (1).png`.
-   Attach the downloaded screenshot in GauthMath yourself in that case.
+   If it cannot find an eligible image upload input, attach the saved screenshot
+   in GauthMath yourself.
 
 The extension does not type a solution into Sparx. The image is sent to
 GauthMath by attaching it on the GauthMath page; if the page exposes exactly
@@ -199,7 +200,7 @@ The extension requests these Chromium permissions:
 | --- | --- |
 | `browsingData` | Remove cookies and cache for the active page's origin. |
 | `clipboardWrite` | Copy a completed ChatGPT answer to the clipboard. |
-| `downloads` | Save a Sparx screenshot if GauthMath's image upload input is not found. |
+| `downloads` | Save each Sparx screenshot in the browser's Downloads folder. |
 | `scripting` | Read visible question text and interact with the supported service pages. |
 | `tabs` | Find, activate, create, reload, and inspect browser tabs used by the workflows. |
 | `<all_urls>` host access | Permit scripts and origin-specific browser-data operations on the active supported pages and destination pages. The workflow itself checks for the supported source hosts before proceeding. |
@@ -210,9 +211,9 @@ The extension requests these Chromium permissions:
 - For Carousel, question text is read from the page and entered into the
   ChatGPT page. ChatGPT processes that prompt under its own account settings
   and policies.
-- For Sparx, a screenshot is captured locally in the browser and attached to
-  the GauthMath page. If attachment is unavailable, the image is downloaded
-  locally instead.
+- For Sparx, a screenshot is captured locally in the browser and saved in the
+  browser's Downloads folder on every run. The extension also attempts to
+  attach it to the GauthMath page.
 - When answer copying succeeds, the response text is written to the system
   clipboard.
 - The extension clears the active origin's cookies and cache only when you
@@ -288,11 +289,12 @@ extension dispatches Enter events to the currently focused element; the
 website may ignore synthetic keyboard events or require a different focused
 control.
 
-### Screenshot was downloaded instead of attached
+### Screenshot was not attached in GauthMath
 
-The extension did not find an enabled image file input on GauthMath. Open
-GauthMath's image-upload control and attach the downloaded `Screenshot.png`
-(or the uniquely named equivalent) manually.
+The extension saves each Sparx screenshot in your browser's Downloads folder
+as `Screenshot.png` (or a uniquely named equivalent). If it could not attach
+the image automatically, open GauthMath's image-upload control and attach that
+downloaded screenshot manually.
 
 ### Cookies and cache could not be cleared
 
