@@ -189,6 +189,13 @@ async function runSolverWorkflow(run) {
     format: "png"
   });
   ensureActive(run);
+  await chrome.downloads.download({
+    url: screenshot,
+    filename: "Screenshot.png",
+    conflictAction: "uniquify",
+    saveAs: false
+  });
+  ensureActive(run);
   const [{ result: pressedEnter }] = await chrome.scripting.executeScript({
     target: { tabId: sourceTab.id },
     func: pressEnterOnPage
@@ -206,15 +213,9 @@ async function runSolverWorkflow(run) {
     args: [screenshot]
   });
   if (uploaded) {
-    return "Sparx advanced with Enter, and the question screenshot was attached in GauthMath.";
+    return "Sparx advanced with Enter. Screenshot saved in Downloads and attached in GauthMath.";
   }
 
-  await chrome.downloads.download({
-    url: screenshot,
-    filename: "Screenshot.png",
-    conflictAction: "uniquify",
-    saveAs: false
-  });
   return "Sparx advanced with Enter. Screenshot saved in Downloads as Screenshot.png; attach it in GauthMath.";
 }
 
